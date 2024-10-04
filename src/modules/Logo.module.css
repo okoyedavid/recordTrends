@@ -1,0 +1,19 @@
+.logo {
+  font-family: "Fredoka", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  text-align: center;
+}
+
+.small {
+  font-size: 2rem;
+}
+
+.medium {
+  font-size: 3rem;
+}
+
+.large {
+  font-size: 5rem;
+}

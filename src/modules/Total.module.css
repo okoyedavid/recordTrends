@@ -1,0 +1,7 @@
+.total {
+  background-color: var(--color-dark--1);
+  height: 27%;
+  padding: 10px;
+  font-family: "Manrope", sans-serif;
+  color: var(--color-light--3);
+}

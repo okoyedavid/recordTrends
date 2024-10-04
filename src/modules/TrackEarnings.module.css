@@ -1,0 +1,7 @@
+.earnings {
+  background-color: var(--color-light--3);
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}

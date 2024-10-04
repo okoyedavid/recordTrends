@@ -1,0 +1,66 @@
+{
+  "dataBase": [
+    {
+      "id": "0a5d",
+      "userInfo": {
+        "name": "David",
+        "passWord": "OKoyedav&$",
+        "email": "okoyedav7@gmail.com"
+      },
+      "groups": [
+        {
+          "groupName": "Master Group",
+          "jobs": 13,
+          "handle": "@aderopo_",
+          "price": 600,
+          "id": "0a5d"
+        },
+        {
+          "groupName": "10k Trend Group",
+          "jobs": 13,
+          "handle": "@graciebon9",
+          "price": 600,
+          "id": "0a6d"
+        },
+        {
+          "groupName": "Mankind Groups",
+          "jobs": 13,
+          "handle": "@__turaii",
+          "price": 600,
+          "id": "0a7d"
+        }
+      ]
+    },
+    {
+      "id": "7a51",
+      "userInfo": {
+        "name": "Emeka",
+        "passWord": "OKoyedav&$",
+        "email": "emeka@gmail.com"
+      },
+      "groups": [
+        {
+          "groupName": "Master Group",
+          "jobs": 13,
+          "handle": "@aderopo_",
+          "price": 600,
+          "id": "0a8d"
+        },
+        {
+          "groupName": "Tag Room in costa rica",
+          "jobs": 13,
+          "handle": "@pherhonicha",
+          "id": "0a9d",
+          "price": 600
+        },
+        {
+          "groupName": "Mankind Groups",
+          "jobs": 13,
+          "handle": "@__turaii",
+          "id": "0a10d",
+          "price": 600
+        }
+      ]
+    }
+  ]
+}
