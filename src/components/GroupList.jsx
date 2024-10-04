@@ -14,7 +14,7 @@ function GroupList() {
     <ul className={styles.groupList}>
       <Logo size={"small"}>Groups you&apos;re in</Logo>
       {groups.map((item) => (
-        <GroupItem group={item} key={item.id} />
+        <GroupItem group={item} key={item?.id} />
       ))}
     </ul>
   );

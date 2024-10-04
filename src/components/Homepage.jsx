@@ -1,16 +1,32 @@
 import styles from "../modules/Homepage.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "../pages/Form";
 import Input from "../pages/Input";
 import Button from "../pages/Button";
+import { UseRecordContext } from "../context/RecordsContext";
 
 function Homepage() {
-  const [value, setValue] = useState("");
-  const [groups, setGroups] = useState("");
-  const [price, setPrice] = useState("");
+  const [handle, setHandle] = useState("@turaii");
+  const [groupName, setGroupName] = useState("Mankind");
+  const [price, setPrice] = useState("800");
+  const { upDateGroup, fetchGroup } = UseRecordContext();
+
+  useEffect(() => {
+    fetchGroup();
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    const group = {
+      groupName,
+      jobs: 0,
+      handle,
+      price: price,
+      id: Date.now().toString(),
+    };
+
+    upDateGroup(group);
   }
   return (
     <Form
@@ -20,17 +36,17 @@ function Homepage() {
     >
       <Input
         labelName={"Name of the Group"}
-        value={groups}
-        setValue={setGroups}
+        value={groupName}
+        setValue={setGroupName}
         htmlfor={"groupName"}
         aria-describedby="name of group"
-        placeholder="input no of groups"
+        placeholder="input name of group"
         className={styles.input}
       />
 
       <Input
-        value={value}
-        setValue={setValue}
+        value={handle}
+        setValue={setHandle}
         labelName={"input account handle"}
         htmlfor={"AccountHandleLabel"}
         aria-describedby="input your handle"

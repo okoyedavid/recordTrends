@@ -14,6 +14,7 @@ const initialState = {
 function reducer(state, { type, payload }) {
   switch (type) {
     case "UserAuthenticated":
+      localStorage.setItem("id", payload.id);
       return {
         ...state,
         user: payload.userInfo.name,
@@ -32,6 +33,7 @@ function reducer(state, { type, payload }) {
 
 export function AuthProvider({ children }) {
   const [{ loading, error, id }, dispatch] = useReducer(reducer, initialState);
+
   const navigate = useNavigate();
 
   async function getUser(name, password) {

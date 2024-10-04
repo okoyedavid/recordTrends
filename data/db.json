@@ -9,58 +9,73 @@
       },
       "groups": [
         {
-          "groupName": "Master Group",
-          "jobs": 13,
-          "handle": "@aderopo_",
-          "price": 600,
-          "id": "0a5d"
-        },
-        {
-          "groupName": "10k Trend Group",
-          "jobs": 13,
+          "groupName": "Master group",
+          "jobs": 0,
           "handle": "@graciebon9",
-          "price": 600,
-          "id": "0a6d"
+          "price": "600",
+          "id": "Fri Oct 04 2024"
         },
         {
-          "groupName": "Mankind Groups",
-          "jobs": 13,
-          "handle": "@__turaii",
-          "price": 600,
-          "id": "0a7d"
+          "groupName": "Mankind",
+          "jobs": 0,
+          "handle": "@turaii",
+          "price": "800",
+          "id": "Fri Oct 04 2024"
+        },
+        {
+          "groupName": "Mankind",
+          "jobs": 0,
+          "handle": "@turaii",
+          "price": "900",
+          "id": "1728067991562"
+        },
+        {
+          "groupName": "Mankind",
+          "jobs": 0,
+          "handle": "@turaii",
+          "price": "800",
+          "id": "1728068010781"
         }
       ]
     },
     {
-      "id": "7a51",
+      "id": "0a6d",
       "userInfo": {
-        "name": "Emeka",
-        "passWord": "OKoyedav&$",
-        "email": "emeka@gmail.com"
+        "name": "okoye",
+        "passWord": "OKoyedav7$",
+        "email": "okoyedav7@gmail.com"
       },
       "groups": [
         {
-          "groupName": "Master Group",
-          "jobs": 13,
-          "handle": "@aderopo_",
-          "price": 600,
-          "id": "0a8d"
-        },
-        {
-          "groupName": "Tag Room in costa rica",
-          "jobs": 13,
-          "handle": "@pherhonicha",
-          "id": "0a9d",
-          "price": 600
-        },
-        {
-          "groupName": "Mankind Groups",
-          "jobs": 13,
+          "groupName": "Mankind",
+          "jobs": 19,
           "handle": "@__turaii",
-          "id": "0a10d",
-          "price": 600
+          "price": "700",
+          "id": "1728069076540"
+        },
+        {
+          "groupName": "Master Group",
+          "jobs": 27,
+          "handle": "@graciebon9",
+          "price": "600",
+          "id": "1728069118721"
+        },
+        {
+          "groupName": "10k Trend group",
+          "jobs": 2,
+          "handle": "@__turaii",
+          "price": "600",
+          "id": "1728069183395"
+        },
+        {
+          "groupName": "Master Group",
+          "jobs": 24,
+          "handle": "@pherhonicha",
+          "price": "600",
+          "id": "1728069231936"
         }
-      ]
+      ],
+      "getID": "0a6d"
     }
   ]
 }

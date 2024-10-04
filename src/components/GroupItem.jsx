@@ -3,7 +3,8 @@ import Button from "../pages/Button";
 import master from "../images/master.jpg";
 import mankind from "../images/mankind.png";
 import akeemImage from "../images/akeem.jpg"; // Add an image for akeem, or another default
-import { UseAuth } from "../context/AuthContext";
+
+import { UseRecordContext } from "../context/RecordsContext";
 
 const regexMaster = /master/i;
 const regexMk = /mankind/i;
@@ -16,11 +17,10 @@ function checkImage(input) {
 }
 
 function GroupItem({ group }) {
-  const { state, getUser } = UseAuth();
+  const { AddJob } = UseRecordContext();
 
-  async function handleNewJob() {
-    await getUser("David", "OKoyedav&$");
-    console.log(state);
+  function handleNewJob(id) {
+    AddJob(id);
   }
   return (
     <li className={styles.groupItem}>
@@ -30,7 +30,11 @@ function GroupItem({ group }) {
         alt={group.groupName}
       />
       <h4 className={styles.name}>{group.groupName}</h4>
-      <Button handleClick={handleNewJob} type="new" label="New job" />
+      <Button
+        onClick={() => handleNewJob(group.id)}
+        type="new"
+        label="New job"
+      />
       <button className={styles.deleteBtn}> x </button>
     </li>
   );

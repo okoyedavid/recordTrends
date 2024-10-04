@@ -9,8 +9,8 @@ import { UseAuth } from "../context/AuthContext";
 
 function Login() {
   const { getUser, loading, error } = UseAuth();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("david");
+  const [password, setPassword] = useState("OKoyedav&$");
   const [type, setType] = useState("password");
 
   function handleSubmit(e) {
