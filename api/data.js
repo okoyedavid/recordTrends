@@ -97,33 +97,73 @@ const users = [
 ];
 
 export default function handler(req, res) {
-  // Handle preflight requests for CORS
   if (req.method === "OPTIONS") {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PUT, DELETE, PATCH"
+    );
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.setHeader("Access-Control-Max-Age", "86400");
-    res.status(204).end(); // End preflight request
+    res.status(204).end();
     return;
   }
 
-  // Handle actual API logic for other HTTP methods (GET, POST, etc.)
-  if (req.method === "GET") {
-    const { id } = req.query; // Get the ID from the query parameters
-    if (id) {
-      // Find the user by ID
-      const user = users.find((user) => user.id === id);
-      if (user) {
-        res.status(200).json(user);
+  // Safely handle ID extraction
+  const id = req.query?.id || null;
+
+  switch (req.method) {
+    case "GET":
+      if (id) {
+        const user = users.find((user) => user.id === id);
+        if (user) {
+          res.status(200).json(user);
+        } else {
+          res.status(404).json({ message: "User not found" });
+        }
       } else {
-        res.status(404).json({ message: "User not found" });
+        res.status(200).json({ dataBase: users });
       }
-    } else {
-      // Return all users if no ID is specified
-      res.status(200).json({ dataBase: users });
-    }
-  } else {
-    res.setHeader("Allow", ["OPTIONS", "GET"]);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
+      break;
+
+    case "POST":
+      const newUser = req.body;
+      users.push(newUser);
+      res.status(201).json(newUser);
+      break;
+
+    case "PUT":
+      if (id) {
+        const updatedUserData = req.body;
+        const userIndex = users.findIndex((user) => user.id === id);
+        if (userIndex > -1) {
+          users[userIndex] = { ...users[userIndex], ...updatedUserData };
+          res.status(200).json(users[userIndex]);
+        } else {
+          res.status(404).json({ message: "User not found" });
+        }
+      } else {
+        res.status(400).json({ message: "ID is required" });
+      }
+      break;
+
+    case "PATCH":
+      if (id) {
+        const patchData = req.body;
+        const patchUserIndex = users.findIndex((user) => user.id === id);
+        if (patchUserIndex > -1) {
+          users[patchUserIndex] = { ...users[patchUserIndex], ...patchData };
+          res.status(200).json(users[patchUserIndex]);
+        } else {
+          res.status(404).json({ message: "User not found" });
+        }
+      } else {
+        res.status(400).json({ message: "ID is required" });
+      }
+      break;
+
+    default:
+      res.setHeader("Allow", ["OPTIONS", "GET", "POST", "PUT", "PATCH"]);
+      res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
