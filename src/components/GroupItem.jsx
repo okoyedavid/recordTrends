@@ -17,7 +17,7 @@ function checkImage(input) {
 }
 
 function GroupItem({ group }) {
-  const { AddJob } = UseRecordContext();
+  const { AddJob, deleteGroup } = UseRecordContext();
 
   function handleNewJob(id) {
     AddJob(id);
@@ -35,7 +35,13 @@ function GroupItem({ group }) {
         type="new"
         label="New job"
       />
-      <button className={styles.deleteBtn}> x </button>
+      <button
+        onClick={() => deleteGroup(group.id)}
+        className={styles.deleteBtn}
+      >
+        {" "}
+        x{" "}
+      </button>
     </li>
   );
 }

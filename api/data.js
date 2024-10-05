@@ -179,8 +179,37 @@ export default function handler(req, res) {
       }
       break;
 
+    case "DELETE":
+      if (id) {
+        const groupID = req.body;
+        const delIndex = users.findIndex((user) => user.id === id);
+
+        if (delIndex > -1) {
+          users[delIndex] = {
+            ...users[delIndex],
+            groups: users[delIndex].groups.filter(
+              (group) => group.id !== groupID
+            ),
+          };
+
+          res.status(200).json(users[delIndex]);
+        } else {
+          res.status(404).json({ message: "User not found" });
+        }
+      } else {
+        res.status(400).json({ message: "ID is required" });
+      }
+      break;
+
     default:
-      res.setHeader("Allow", ["OPTIONS", "GET", "POST", "PUT", "PATCH"]);
+      res.setHeader("Allow", [
+        "OPTIONS",
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE",
+      ]);
       res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
