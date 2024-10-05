@@ -41,9 +41,8 @@ export function AuthProvider({ children }) {
       dispatch({ type: "loading" });
       const res = await fetch("https://record-trends.vercel.app/api/data");
       const data = await res.json();
-      console.log(data);
 
-      validateInfo(data, name, password);
+      validateInfo(data.dataBase, name, password);
     } catch (error) {
       console.log(error.message);
       dispatch({ type: "error", payload: error.message });
@@ -57,10 +56,6 @@ export function AuthProvider({ children }) {
       (user) =>
         user.userInfo.name === name && user.userInfo.passWord === password
     );
-
-    console.log(typeof data);
-    console.log("this is result of authuse", authenticatedUser);
-    console.log(data.userInfo.name);
 
     if (authenticatedUser) {
       dispatch({ type: "UserAuthenticated", payload: authenticatedUser });
