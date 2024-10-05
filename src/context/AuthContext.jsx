@@ -54,8 +54,7 @@ export function AuthProvider({ children }) {
   function validateInfo(data, name, password) {
     const authenticatedUser = Object.values(data).find(
       (user) =>
-        user.userInfo.name.toLowerCase() === name &&
-        user.userInfo.passWord.toLowerCase() === password
+        user.userInfo.name === name && user.userInfo.passWord === password
     );
     if (authenticatedUser) {
       dispatch({ type: "UserAuthenticated", payload: authenticatedUser });

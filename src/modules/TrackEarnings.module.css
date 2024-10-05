@@ -5,3 +5,9 @@
   flex-direction: column;
   align-content: center;
 }
+
+@media (max-width: 400px) {
+  .earnings {
+    width: 100vw;
+  }
+}

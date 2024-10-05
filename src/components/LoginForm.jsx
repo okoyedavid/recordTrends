@@ -15,7 +15,7 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    getUser(userName.toLowerCase(), password.toLowerCase());
+    getUser(userName, password);
   }
 
   return (

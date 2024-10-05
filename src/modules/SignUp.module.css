@@ -1,0 +1,36 @@
+.form {
+  background-image: url("/public/twitter.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.form > div {
+  width: 400px;
+}
+
+.form label {
+  font-size: 1.2rem;
+  font-family: "Fredoka", sans-serif;
+}
+
+.input {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 400px) {
+  .form > div {
+    width: 300px;
+  }
+
+  .form label {
+    font-size: 1rem;
+    font-family: "Fredoka", sans-serif;
+  }
+
+  .input {
+    margin-bottom: 8px;
+  }
+}

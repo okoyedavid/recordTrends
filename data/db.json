@@ -48,14 +48,14 @@
       "groups": [
         {
           "groupName": "Mankind",
-          "jobs": 19,
+          "jobs": 20,
           "handle": "@__turaii",
           "price": "700",
           "id": "1728069076540"
         },
         {
           "groupName": "Master Group",
-          "jobs": 27,
+          "jobs": 28,
           "handle": "@graciebon9",
           "price": "600",
           "id": "1728069118721"
@@ -69,13 +69,30 @@
         },
         {
           "groupName": "Master Group",
-          "jobs": 24,
+          "jobs": 25,
           "handle": "@pherhonicha",
           "price": "600",
           "id": "1728069231936"
         }
+      ]
+    },
+    {
+      "id": "1728122769678",
+      "userInfo": {
+        "name": "chigozie",
+        "passWord": "chigozie",
+        "email": "chigozie@gmail.com"
+      },
+      "groups": [
+        {
+          "groupName": "class of 2025 city royal",
+          "jobs": 8,
+          "handle": "chigozie",
+          "price": "80000",
+          "id": "1728122816467"
+        }
       ],
-      "getID": "0a6d"
+      "getID": "1728122769678"
     }
   ]
 }

@@ -12,3 +12,10 @@
 
   padding: 10px;
 }
+
+@media (max-width: 400px) {
+  .dashboardList {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+}

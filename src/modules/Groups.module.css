@@ -10,3 +10,9 @@
   align-items: center;
   padding-top: 20px;
 }
+
+@media (max-width: 400px) {
+  .groups {
+    width: 100vw;
+  }
+}

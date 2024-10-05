@@ -102,9 +102,37 @@ export function RecordsProvider({ children }) {
       dispatch({ type: "finished" });
     }
   }
+
+  async function newUser(user) {
+    const newGroup = { id: Date.now().toString(), userInfo: user, groups: [] };
+
+    try {
+      await fetch(`http://localhost:8000/dataBase`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newGroup),
+      });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      dispatch({ type: "error", payload: error.message });
+    } finally {
+      dispatch({ type: "finished" });
+    }
+  }
   return (
     <RecordsContext.Provider
-      value={{ fetchGroup, groups, loading, error, upDateGroup, AddJob }}
+      value={{
+        fetchGroup,
+        groups,
+        loading,
+        error,
+        upDateGroup,
+        AddJob,
+        newUser,
+      }}
     >
       {children}
     </RecordsContext.Provider>
