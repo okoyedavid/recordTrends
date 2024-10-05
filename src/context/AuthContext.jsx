@@ -53,10 +53,18 @@ export function AuthProvider({ children }) {
   }
 
   function validateInfo(data, name, password) {
+    console.log(data, "this is the data)
+                  console.log(name, "this is the name)
+                                console.log(password, "this is the password)
     const authenticatedUser = Object.values(data).find(
       (user) =>
         user.userInfo.name === name && user.userInfo.passWord === password
     );
+
+    console.log(typeof data)
+    console.log("this is result of authuse" authenticatedUser);
+    console.log( user.userInfo.name)
+    
     if (authenticatedUser) {
       dispatch({ type: "UserAuthenticated", payload: authenticatedUser });
       navigate("/records");
