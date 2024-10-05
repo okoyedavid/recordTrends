@@ -39,7 +39,8 @@ export function AuthProvider({ children }) {
   async function getUser(name, password) {
     try {
       dispatch({ type: "loading" });
-      const res = await fetch("http://localhost:8000/dataBase");
+      const res = await fetch("https://record-trends.vercel.app/api/data");
+      console.log(res);
       const data = await res.json();
 
       validateInfo(data, name, password);
