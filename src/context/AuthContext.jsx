@@ -41,6 +41,7 @@ export function AuthProvider({ children }) {
       dispatch({ type: "loading" });
       const res = await fetch("https://record-trends.vercel.app/api/data");
       const data = await res.json();
+      console.log(data);
 
       validateInfo(data, name, password);
     } catch (error) {
