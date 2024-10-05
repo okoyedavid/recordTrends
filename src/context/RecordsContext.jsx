@@ -143,11 +143,11 @@ export function RecordsProvider({ children }) {
         }
       );
 
-      const data = res.json();
+      const data = await res.json();
 
       console.log(data);
 
-      //dispatch({ type: "fetchGroups", payload: data });
+      dispatch({ type: "fetchGroups", payload: data });
     } catch (error) {
       console.log(error);
       dispatch({ type: "error", payload: error.message });

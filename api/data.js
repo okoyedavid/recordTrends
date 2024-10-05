@@ -9,14 +9,14 @@ const users = [
     groups: [
       {
         groupName: "Master group",
-        jobs: 0,
+        jobs: 28,
         handle: "@graciebon9",
         price: "600",
         id: "Fri Oct 04 2024",
       },
       {
         groupName: "Mankind",
-        jobs: 0,
+        jobs: 19,
         handle: "@turaii",
         price: "800",
         id: "Fri Oct 04 2024",
@@ -54,7 +54,7 @@ const users = [
       },
       {
         groupName: "Master Group",
-        jobs: 0,
+        jobs: 28,
         handle: "@graciebon9",
         price: "600",
         id: "1728069118721",
@@ -68,7 +68,7 @@ const users = [
       },
       {
         groupName: "Master Group",
-        jobs: 0,
+        jobs: 25,
         handle: "@pherhonicha",
         price: "600",
         id: "1728069231936",
