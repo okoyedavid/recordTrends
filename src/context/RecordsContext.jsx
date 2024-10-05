@@ -48,7 +48,7 @@ export function RecordsProvider({ children }) {
       );
       const data = await res.json();
 
-      dispatch({ type: "fetchGroups", payload: data.dataBase });
+      dispatch({ type: "fetchGroups", payload: data });
     } catch (error) {
       console.log(error);
       dispatch({ type: "error", payload: error.message });
@@ -67,11 +67,11 @@ export function RecordsProvider({ children }) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(newGroup),
+          body: JSON.stringify(group),
         }
       );
       const data = await res.json();
-      dispatch({ type: "fetchGroups", payload: data.dataBase });
+      dispatch({ type: "fetchGroups", payload: data });
       navigate("/records");
     } catch (error) {
       console.log(error);
@@ -99,7 +99,7 @@ export function RecordsProvider({ children }) {
         }
       );
       const data = await res.json();
-      dispatch({ type: "fetchGroups", payload: data.dataBase });
+      dispatch({ type: "fetchGroups", payload: data });
       navigate("/records");
     } catch (error) {
       console.log(error);
