@@ -97,6 +97,17 @@ const users = [
 ];
 
 export default function handler(req, res) {
+  const allowedOrigins = [
+    "https://record-trends.vercel.app", // Your deployed Vercel site
+    "http://localhost:5173", // Your local dev environment
+  ];
+
+  const origin = req.headers.origin; // Get the origin of the request
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
   if (req.method === "OPTIONS") {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
     res.setHeader(
