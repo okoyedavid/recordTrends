@@ -132,15 +132,22 @@ export function RecordsProvider({ children }) {
 
   async function deleteGroup(id) {
     try {
-      await fetch(`https://record-trends.vercel.app/api/data?id=${getID}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id),
-      });
+      const res = await fetch(
+        `https://record-trends.vercel.app/api/data?id=${getID}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(id),
+        }
+      );
 
-      fetchGroup();
+      const data = res.json();
+
+      console.log(data);
+
+      //dispatch({ type: "fetchGroups", payload: data });
     } catch (error) {
       console.log(error);
       dispatch({ type: "error", payload: error.message });
