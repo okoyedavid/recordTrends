@@ -44,7 +44,7 @@ export function RecordsProvider({ children }) {
     try {
       dispatch({ type: "loading" });
       const res = await fetch(
-        `http://localhost:8000/dataBase/${getID ? getID : id}`
+        `https://record-trends.vercel.app/api/data?id=${getID ? getID : id}`
       );
       const data = await res.json();
 
@@ -60,13 +60,16 @@ export function RecordsProvider({ children }) {
   async function upDateGroup(group) {
     const newGroup = { id, userInfo, groups: [...groups, group] };
     try {
-      const res = await fetch(`http://localhost:8000/dataBase/${getID}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newGroup),
-      });
+      const res = await fetch(
+        `https://record-trends.vercel.app/api/data?id=${getID}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newGroup),
+        }
+      );
       const data = await res.json();
       dispatch({ type: "fetchGroups", payload: data });
       navigate("/records");
@@ -85,13 +88,16 @@ export function RecordsProvider({ children }) {
 
     const newGroup = { getID, userInfo, groups: group };
     try {
-      const res = await fetch(`http://localhost:8000/dataBase/${getID}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newGroup),
-      });
+      const res = await fetch(
+        `https://record-trends.vercel.app/api/data?id=${getID}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newGroup),
+        }
+      );
       const data = await res.json();
       dispatch({ type: "fetchGroups", payload: data });
       navigate("/records");
@@ -107,7 +113,7 @@ export function RecordsProvider({ children }) {
     const newGroup = { id: Date.now().toString(), userInfo: user, groups: [] };
 
     try {
-      await fetch(`http://localhost:8000/dataBase`, {
+      await fetch(`https://record-trends.vercel.app/api/data`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
