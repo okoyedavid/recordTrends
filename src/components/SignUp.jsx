@@ -6,9 +6,9 @@ import { useState } from "react";
 import { UseRecordContext } from "../context/RecordsContext";
 
 function SignUp() {
-  const [user, setUser] = useState("chigozie");
-  const [email, setEmail] = useState("okoyedav7@gmail.com");
-  const [password, setPassword] = useState("Okoyedavid8");
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { newUser } = UseRecordContext();
 
   function handleSubmit(e) {
