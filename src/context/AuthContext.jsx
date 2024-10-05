@@ -53,10 +53,7 @@ export function AuthProvider({ children }) {
   }
 
   function validateInfo(data, name, password) {
-    console.log(data.dataBase, "this is the data");
-    console.log(name, "this is the name");
-    console.log(password, "this is the password");
-    const authenticatedUser = Object.values(data).find(
+    const authenticatedUser = Object.values(data.dataBase).find(
       (user) =>
         user.userInfo.name === name && user.userInfo.passWord === password
     );
