@@ -58,7 +58,7 @@ export function RecordsProvider({ children }) {
   }
 
   async function upDateGroup(group) {
-    const newGroup = { id, userInfo, groups: [...groups, group] };
+    //const newGroup = { id, userInfo, groups: [...groups, group] };
     try {
       const res = await fetch(
         `https://record-trends.vercel.app/api/data?id=${getID}`,
