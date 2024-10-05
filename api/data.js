@@ -148,7 +148,7 @@ export default function handler(req, res) {
         const updatedUserData = req.body;
         const userIndex = users.findIndex((user) => user.id === id);
         if (userIndex > -1) {
-          users[userIndex] = { ...users[userIndex], ...updatedUserData };
+          users[userIndex] = { ...users[userIndex], groups: updatedUserData };
           res.status(200).json(users[userIndex]);
         } else {
           res.status(404).json({ message: "User not found" });

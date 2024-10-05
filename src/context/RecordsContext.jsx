@@ -88,16 +88,15 @@ export function RecordsProvider({ children }) {
       item.id === idNo ? { ...item, jobs: item.jobs + 1 } : { ...item }
     );
 
-    const newGroup = { getID, userInfo, groups: group };
     try {
       const res = await fetch(
         `https://record-trends.vercel.app/api/data?id=${getID}`,
         {
-          method: "PATCH",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(newGroup),
+          body: JSON.stringify(group),
         }
       );
       const data = await res.json();
@@ -140,7 +139,8 @@ export function RecordsProvider({ children }) {
         },
         body: JSON.stringify(id),
       });
-      navigate("/records");
+
+      fetchGroup();
     } catch (error) {
       console.log(error);
       dispatch({ type: "error", payload: error.message });
