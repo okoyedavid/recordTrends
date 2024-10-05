@@ -44,9 +44,10 @@ export function RecordsProvider({ children }) {
     try {
       dispatch({ type: "loading" });
       const res = await fetch(
-        `https://record-trends.vercel.app/api/data?id=${getID ? getID : id}`
+        `https://record-trends.vercel.app/api/data?id=${getID}`
       );
       const data = await res.json();
+      console.log(data);
 
       dispatch({ type: "fetchGroups", payload: data });
     } catch (error) {
@@ -58,7 +59,7 @@ export function RecordsProvider({ children }) {
   }
 
   async function upDateGroup(group) {
-    const newGroup = { id, userInfo, groups: [...groups, group] };
+    const newGroup = { id: getID, userInfo, groups: [...groups, group] };
     try {
       const res = await fetch(
         `https://record-trends.vercel.app/api/data?id=${getID}`,
@@ -73,8 +74,8 @@ export function RecordsProvider({ children }) {
       );
       const data = await res.json();
       console.log(data);
-      // dispatch({ type: "fetchGroups", payload: data.dataBase });
-      // navigate("/records");
+      dispatch({ type: "fetchGroups", payload: data });
+      //navigate("/records");
     } catch (error) {
       console.log(error);
       dispatch({ type: "error", payload: error.message });
