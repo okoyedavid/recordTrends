@@ -59,16 +59,15 @@ export function RecordsProvider({ children }) {
   }
 
   async function upDateGroup(group) {
-    const newGroup = { id: getID, userInfo, groups: [...groups, group] };
     try {
       const res = await fetch(
         `https://record-trends.vercel.app/api/data?id=${getID}`,
         {
-          method: "POST",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(newGroup),
+          body: JSON.stringify(group),
           id,
         }
       );

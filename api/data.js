@@ -160,10 +160,16 @@ export default function handler(req, res) {
 
     case "PATCH":
       if (id) {
-        const patchData = req.body;
+        const patchData = req.body; // This should contain the new group data
         const patchUserIndex = users.findIndex((user) => user.id === id);
+
         if (patchUserIndex > -1) {
-          users[patchUserIndex] = { ...users[patchUserIndex], ...patchData };
+          // Update only the groups array within the user object
+          users[patchUserIndex] = {
+            ...users[patchUserIndex],
+            groups: [...users[patchUserIndex].groups, patchData], // Append the new groups
+          };
+
           res.status(200).json(users[patchUserIndex]);
         } else {
           res.status(404).json({ message: "User not found" });
